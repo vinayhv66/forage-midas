@@ -6,6 +6,7 @@ import com.jpmc.midascore.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 public class BalanceController {
@@ -23,5 +24,11 @@ public class BalanceController {
       return new Balance(0f);
     }
     return new Balance(user.getBalance());
+  }
+
+  @CrossOrigin(origins = "*")
+  @GetMapping("/users")
+  public Iterable<UserRecord> users() {
+    return userRepository.findAll();
   }
 }
