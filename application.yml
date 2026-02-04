@@ -1,0 +1,13 @@
+general:
+  kafka-topic: trader-updates
+
+server:
+  port: 33400
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  kafka:
+    consumer:
+      group-id: midas-group
